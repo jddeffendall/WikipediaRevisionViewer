@@ -1,0 +1,4 @@
+package exceptions;
+
+public class NetworkErrorException extends Throwable {
+}
