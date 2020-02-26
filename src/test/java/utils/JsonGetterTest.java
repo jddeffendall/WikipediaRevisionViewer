@@ -25,6 +25,6 @@ class JsonGetterTest {
         Scanner scanner = new Scanner(in);
         String result = scanner.nextLine();
 
-        assertEquals();
+        //assertEquals();
     }
 }

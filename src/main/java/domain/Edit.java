@@ -2,16 +2,16 @@ package domain;
 
 public class Edit {
 
-    private String name;
+    private String user;
     private String timestamp;
 
-    public Edit(String name, String time) {
-        this.name = name;
+    public Edit(String user, String time) {
+        this.user = user;
         this.timestamp = time;
     }
 
-    public String getName() {
-        return name;
+    public String getUser() {
+        return user;
     }
 
     public String getTimestamp() {

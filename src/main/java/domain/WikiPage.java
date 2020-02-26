@@ -6,39 +6,49 @@ import java.util.List;
 
 public class WikiPage {
 
-    @SerializedName(value = "title", alternate = "pageTitle")
-    private String pageTitle;
+    @SerializedName(value = "continue", alternate = "continues")
+    private String continues;
 
-    @SerializedName(value = "redirects", alternate = "redirect")
-    private String redirect;
+    private String rvcontinue;
 
-    @SerializedName("pages")
+    @SerializedName(value = "continue", alternate = "continues2")
+    private String continues2;
+
+    private String query;
     private String pages;
+    private List<Edit> revisions;
 
-    @SerializedName(value = "revisions", alternate = "editList")
-    private List<Edit> editList;
-
-    public WikiPage(String title, String redirect, String pages, List<Edit> edits) {
-        this.pageTitle = title;
-        this.redirect = redirect;
+    public WikiPage(String continues, String rvcontinue, String continues2, String query, String pages, List<Edit> revisions) {
+        this.continues = continues;
+        this.rvcontinue = rvcontinue;
+        this.continues2 = continues2;
+        this.query = query;
         this.pages = pages;
-        this.editList = edits;
+        this.revisions = revisions;
     }
 
-    public String getPageTitle() {
-        return pageTitle;
+    public String getContinues() {
+        return continues;
     }
 
-    public String getRedirect() {
-        return redirect;
+    public String getRvcontinue() {
+        return rvcontinue;
+    }
+
+    public String getContinues2() {
+        return continues2;
+    }
+
+    public String getQuery() {
+        return query;
     }
 
     public String getPages() {
         return pages;
     }
 
-    public List<Edit> getEditList() {
-        return editList;
+    public List<Edit> getRevisions() {
+        return revisions;
     }
 
 }

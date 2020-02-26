@@ -4,7 +4,7 @@ import exceptions.NoWikipediaPageForWordException;
 import exceptions.ParameterIsNotJsonStringException;
 import utils.EditAnalyzer;
 import utils.JsonGetter;
-import utils.JsonParser;
+import utils.JsonStringParser;
 
 import java.io.IOException;
 import java.util.List;
@@ -19,10 +19,13 @@ public class Main {
         String userWord = input.next();
 
         String userJsonString = new JsonGetter().JsonStringGetter(userWord);
-
-        WikiPage userWiki = JsonParser.ParseJson(userJsonString);
+        WikiPage userWiki = JsonStringParser.ParseJson(userJsonString);
 
         EditAnalyzer.AnalyzeEdits(userWiki);
+
+        System.out.println(userWiki.getPageTitle());
+
+
 
         List<Edit> editList = userWiki.getEditList();
 
