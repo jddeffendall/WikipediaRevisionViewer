@@ -1,54 +1,35 @@
 package domain;
 
-import com.google.gson.annotations.SerializedName;
-
-import java.util.List;
-
-public class WikiPage {
+/*public class WikiPage {
 
     @SerializedName(value = "continue", alternate = "continues")
-    private String continues;
+    private JsonObject continues;
+    private JsonObject query;
+    private JsonObject pages;
+    private JsonArray revisions;
 
-    private String rvcontinue;
-
-    @SerializedName(value = "continue", alternate = "continues2")
-    private String continues2;
-
-    private String query;
-    private String pages;
-    private List<Edit> revisions;
-
-    public WikiPage(String continues, String rvcontinue, String continues2, String query, String pages, List<Edit> revisions) {
+    public WikiPage(JsonObject continues, JsonObject query, JsonObject pages, JsonArray revisions) {
         this.continues = continues;
-        this.rvcontinue = rvcontinue;
-        this.continues2 = continues2;
         this.query = query;
         this.pages = pages;
         this.revisions = revisions;
     }
 
-    public String getContinues() {
+    public JsonObject getContinues() {
         return continues;
     }
 
-    public String getRvcontinue() {
-        return rvcontinue;
-    }
-
-    public String getContinues2() {
-        return continues2;
-    }
-
-    public String getQuery() {
+    public JsonObject getQuery() {
         return query;
     }
 
-    public String getPages() {
+    public JsonObject getPages() {
         return pages;
     }
 
-    public List<Edit> getRevisions() {
+    public JsonArray getRevisions() {
         return revisions;
     }
 
 }
+*/

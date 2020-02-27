@@ -1,35 +1,36 @@
 package utils;
 
 import com.google.gson.*;
-import domain.WikiPage;
+import domain.Edit;
 import exceptions.ParameterIsNotJsonStringException;
+
+import java.util.Map;
 
 public class JsonStringParser {
 
-    public static WikiPage ParseJson(String jsonString) throws ParameterIsNotJsonStringException {
-
+    public static JsonArray ParseToJsonArray(String jsonString) throws ParameterIsNotJsonStringException {
         if (jsonString.charAt(0) != '{') {
             throw new ParameterIsNotJsonStringException();
         }
 
-        Gson gson = new Gson();
-        WikiPage wiki = gson.fromJson(jsonString, WikiPage.class);
-
-        return wiki;
-    }
-
-
-    public static WikiPage ParseRecent(String jsonString) {
         JsonParser jsonParser = new JsonParser();
         JsonElement rootElement = jsonParser.parse(jsonString);
-        JsonObject rootObject =rootElement.getAsJsonObject();
-        var continues = rootObject.getAsJsonPrimitive("continue");
-        var query = rootObject.getAsJsonPrimitive("query");
-        var pageTitle = rootObject.getAsJsonPrimitive("title");
-        var redirect = rootObject.getAsJsonPrimitive("redirects");
-        var pages = rootObject.getAsJsonPrimitive("pages");
-        JsonArray editArray = new JsonArray(30);
-        editArray.addAll(editArray);
-        return null;
+        JsonObject rootObject = rootElement.getAsJsonObject();
+        JsonObject pages = rootObject.getAsJsonObject("query").getAsJsonObject("pages");
+        JsonArray revisions = null;
+
+        for (Map.Entry<String, JsonElement> edit : pages.entrySet()) {
+            JsonObject editObject = edit.getValue().getAsJsonObject();
+            revisions = editObject.getAsJsonArray("revisions");
+            String title = editObject.getAsJsonPrimitive("title").toString();
+            System.out.println("Page Title: " + title);
+        }
+        return revisions;
+    }
+
+    public static Edit[] ParseArrayToObjects(String jsonString) {
+        Gson gson = new Gson();
+        Edit[] editArray = gson.fromJson(jsonString, Edit[].class);
+        return editArray;
     }
 }
