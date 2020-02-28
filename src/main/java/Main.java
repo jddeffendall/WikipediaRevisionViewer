@@ -19,7 +19,6 @@ public class Main {
             String userWord = input.next();
 
             String userJsonString = new JsonGetter().JsonStringGetter(userWord);
-            System.out.println(userJsonString);
             WikiPage userWiki = JsonStringParser.ParseJsonToObjects(userJsonString);
 
             if (userWiki.getRedirect() != null) {
