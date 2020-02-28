@@ -8,7 +8,7 @@ public class Edit {
 
     private String user;
     private Date timestamp;
-    private int editCount;
+    private int editCount = 1;
 
     public Edit(String user, String time) throws ParseException {
         this.user = user;
@@ -29,8 +29,8 @@ public class Edit {
         return editCount;
     }
 
-    public void setEditCount(int editCount) {
-        this.editCount = editCount;
+    public void increaeEditCount() {
+        editCount++;
     }
 
     @Override
