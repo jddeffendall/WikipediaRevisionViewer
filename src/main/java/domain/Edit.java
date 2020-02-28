@@ -33,4 +33,11 @@ public class Edit {
         this.editCount = editCount;
     }
 
+    @Override
+    public String toString() {
+        return "Editor {" +
+                "Username: " + user + '\'' +
+                "Timestamp: " + timestamp + '\'' +
+                '}';
+    }
 }

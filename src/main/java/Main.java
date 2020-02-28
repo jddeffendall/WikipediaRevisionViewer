@@ -7,7 +7,6 @@ import utils.JsonGetter;
 import utils.JsonStringParser;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -23,15 +22,13 @@ public class Main {
             if (userWiki.getRedirect() != null) {
                 System.out.println("Redirected from " + userWord + " to " + userWiki.getPageTitle());
             }
+
             System.out.println("Recent editors: ");
-            for (int i = 0; i < userWiki.getPageEditors().size(); i++) {
-                System.out.println("--------------------------------------------");
-                System.out.println("User: " + userWiki.getPageEditors().get(i).getUser());
-                System.out.println("Time of Edit: " + userWiki.getPageEditors().get(i).getTimestamp());
+            for (Edit i : userWiki.getPageEditors()) {
+                System.out.println(i);
             }
 
             System.out.println("\nEditors with their counts:");
-            List<Edit> editors = userWiki.getPageEditors();
 
             
         } catch (ParameterIsNotJsonStringException e) {

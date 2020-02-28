@@ -1,21 +1,19 @@
 package domain;
 
-import java.util.List;
-
 public class WikiPage {
 
     private String pageTitle;
     private int pageId;
-    private List<Edit> pageEditors;
+    private Edit[] pageEditors;
     private Redirect redirect;
 
-    public WikiPage(String pageTitle, int pageId, List<Edit> pageEditors) {
+    public WikiPage(String pageTitle, int pageId, Edit[] pageEditors) {
         this.pageTitle = pageTitle;
         this.pageId = pageId;
         this.pageEditors = pageEditors;
     }
 
-    public WikiPage(String pageTitle, int pageId, List<Edit> pageEditors, Redirect redirect) {
+    public WikiPage(String pageTitle, int pageId, Edit[] pageEditors, Redirect redirect) {
         this.pageTitle = pageTitle;
         this.pageId = pageId;
         this.pageEditors = pageEditors;
@@ -30,7 +28,7 @@ public class WikiPage {
         return pageId;
     }
 
-    public List<Edit> getPageEditors() {
+    public Edit[] getPageEditors() {
         return pageEditors;
     }
 
