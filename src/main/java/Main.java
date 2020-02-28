@@ -13,7 +13,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException, ParameterIsNotJsonStringException, NetworkErrorException, NoWikipediaPageForWordException {
         try (Scanner input = new Scanner(System.in)) {
-            System.out.print("Enter a word to view its Wikipedia editors: ");
+            System.out.print("Enter a word to view its Wikipedia page editors: ");
             String userWord = input.next();
 
             String userJsonString = new JsonGetter().JsonStringGetter(userWord);
@@ -28,13 +28,16 @@ public class Main {
                 System.out.println(i);
             }
 
-            System.out.println("\nEditors with their counts:");
+            System.out.println("\n\nEditors with their counts:");
 
             
         } catch (ParameterIsNotJsonStringException e) {
             System.out.println("Parameter is not Json string exception.");
         } catch (NoWikipediaPageForWordException e) {
             System.out.println("No Wikipedia page for word exception.");
+        }
+        catch (NetworkErrorException e) {
+            System.out.println("Network error; can't connect.");
         }
     }
 }
