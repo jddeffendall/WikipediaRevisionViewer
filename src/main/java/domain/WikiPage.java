@@ -1,35 +1,50 @@
 package domain;
 
-/*public class WikiPage {
+import java.util.List;
 
-    @SerializedName(value = "continue", alternate = "continues")
-    private JsonObject continues;
-    private JsonObject query;
-    private JsonObject pages;
-    private JsonArray revisions;
+public class WikiPage {
 
-    public WikiPage(JsonObject continues, JsonObject query, JsonObject pages, JsonArray revisions) {
-        this.continues = continues;
-        this.query = query;
-        this.pages = pages;
-        this.revisions = revisions;
+    private String pageTitle;
+    private int pageId;
+    private List<Edit> pageEditors;
+    private Redirect redirect;
+
+    public WikiPage(String pageTitle, int pageId, List<Edit> pageEditors) {
+        this.pageTitle = pageTitle;
+        this.pageId = pageId;
+        this.pageEditors = pageEditors;
     }
 
-    public JsonObject getContinues() {
-        return continues;
+    public WikiPage(String pageTitle, int pageId, List<Edit> pageEditors, Redirect redirect) {
+        this.pageTitle = pageTitle;
+        this.pageId = pageId;
+        this.pageEditors = pageEditors;
+        this.redirect = redirect;
     }
 
-    public JsonObject getQuery() {
-        return query;
+    public String getPageTitle() {
+        return pageTitle;
     }
 
-    public JsonObject getPages() {
-        return pages;
+    public int getPageId() {
+        return pageId;
     }
 
-    public JsonArray getRevisions() {
-        return revisions;
+    public List<Edit> getPageEditors() {
+        return pageEditors;
+    }
+
+    public Redirect getRedirect() {
+        return redirect;
+    }
+
+    @Override
+    public String toString() {
+        return "WikiPage{" +
+                ", pageTitle=" + pageTitle + '\'' +
+                ", pageId=" + pageId + '\'' +
+                ", pageEditors=" + pageEditors + '\'' +
+                ", redirect=" + redirect + '}';
     }
 
 }
-*/

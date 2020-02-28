@@ -2,39 +2,35 @@ package domain;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Edit {
 
     private String user;
-    private String timestamp;
+    private Date timestamp;
+    private int editCount;
 
     public Edit(String user, String time) throws ParseException {
         this.user = user;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        this.timestamp = String.valueOf(simpleDateFormat.parse(time));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-ddThh:mm:ssZ");
+        this.timestamp = simpleDateFormat.parse(time);
+
     }
 
     public String getUser() {
         return user;
     }
 
-    public String getTimestamp() {
+    public Date getTimestamp() {
         return timestamp;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public int getEditCount() {
+        return editCount;
     }
 
-    public void setTimestamp(String timestamp) {
-        this.timestamp = timestamp;
+    public void setEditCount(int editCount) {
+        this.editCount = editCount;
     }
 
-    @Override
-    public String toString() {
-        return "Editor {" +
-                "Username: " + user + '\'' +
-                "Timestamp: " + timestamp + '\'' +
-                '}';
-    }
 }
