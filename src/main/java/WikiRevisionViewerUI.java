@@ -26,6 +26,10 @@ import java.util.List;
 
 public class WikiRevisionViewerUI extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle("Wikipedia Revision Viewer");
@@ -37,10 +41,10 @@ public class WikiRevisionViewerUI extends Application {
         gridPane.setHgap(5);
         gridPane.setVgap(5);
 
-        Font font = Font.font("Verdana", FontWeight.BOLD, 20);
+        Font titleFont = Font.font("Verdana", FontWeight.BOLD, 20);
 
         Label introLabel = new Label("Welcome to the Wikipedia Revision Viewer!");
-        introLabel.setFont(font);
+        introLabel.setFont(titleFont);
         introLabel.setAlignment(Pos.CENTER);
         gridPane.add(introLabel, 0,0,10,1);
 
@@ -100,6 +104,10 @@ public class WikiRevisionViewerUI extends Application {
         searchButton.setOnAction(value -> {
             JsonGetter jsonGetter = new JsonGetter();
             try {
+                //Clear the table of previous searches
+                recentEditorsTable.getItems().clear();
+                countedEditsTable.getItems().clear();
+
                 String input = userInput.getText();
                 String userJsonString = jsonGetter.JsonStringGetter(userInput.getText());
                 WikiPage userWiki = JsonStringParser.ParseJsonToObjects(userJsonString);
